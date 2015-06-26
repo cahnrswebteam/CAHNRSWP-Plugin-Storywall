@@ -30,9 +30,6 @@ class CAHNRSWP_Story_Wall {
 		if ( is_category( $this->category ) ) {
 			$template = plugin_dir_path( __FILE__ ) . 'templates/archive.php';
 		}
-		/*if ( in_category( $this->category ) ) {
-			$template = plugin_dir_path( __FILE__ ) . 'templates/single.php';
-		}*/
 		return $template;
 	}
 
@@ -42,9 +39,7 @@ class CAHNRSWP_Story_Wall {
 	public function wp_enqueue_scripts() {
 		if ( is_category( $this->category ) ) {
 			wp_enqueue_style( 'cahnrs-story-wall-css', plugin_dir_url( __FILE__ ) . 'css/story-wall.css' );
-			//wp_enqueue_script( 'cahnrs-story-wall-js', plugin_dir_url( __FILE__ ) . 'js/story-wall.js', array(), '', true );
 		}
-		//if ( in_category( $this->$category ) ) {}
 	}
 
 }

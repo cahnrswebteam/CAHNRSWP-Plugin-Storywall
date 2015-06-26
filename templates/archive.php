@@ -9,7 +9,7 @@
 		<div class="column one story-wall">
 
 			<header class="archive-header">
-				<h1 class="archive-title"><?php single_cat_title( '', true ); ?></h1>
+				<h1 class="archive-title"><?php esc_html( single_cat_title( '', true ) ); ?></h1>
 			</header>
 
 			<?php if ( category_description() ) : ?>
@@ -64,18 +64,18 @@
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
 
-					<img src="<?php echo plugin_dir_url( dirname(__FILE__) ) . 'images/' . $placeholder[0]; ?>.png" width="<?php echo $placeholder[1]; ?>" height="<?php echo $placeholder[2]; ?>" />
+					<img src="<?php echo plugin_dir_url( dirname(__FILE__) ) . 'images/' . esc_attr( $placeholder[0] ); ?>.png" width="<?php echo esc_attr( $placeholder[1] ); ?>" height="<?php echo esc_attr( $placeholder[2] ); ?>" />
 
 					<?php
 						if ( has_post_thumbnail() ) {
 							$featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'spine-medium_size' );
 							$background = ' style="';
-							$background .= 'background-image: url(' . $featured_image[0] . ');';
+							$background .= 'background-image: url(' . esc_url( $featured_image[0] ) . ');';
 							if ( ( 'tier1' === $placeholder[0] || 'tier3' === $placeholder[0] ) && get_post_meta( $post->ID, 'storywall_background_position', true ) ) {
-								$background .= ' background-position: ' . get_post_meta( $post->ID, 'storywall_background_position', true ) . ';';
+								$background .= ' background-position: ' . esc_attr( get_post_meta( $post->ID, 'storywall_background_position', true ) ) . ';';
 							}
 							if ( 'tier2' === $placeholder[0] && get_post_meta( $post->ID, 'storywall_tier2_background_position', true ) ) {
-								$background .= ' background-position: ' . get_post_meta( $post->ID, 'storywall_tier2_background_position', true ) . ';';
+								$background .= ' background-position: ' . esc_attr( get_post_meta( $post->ID, 'storywall_tier2_background_position', true ) ) . ';';
 							}
 							$background .= '"';
 						} else {
