@@ -39,10 +39,11 @@ article.yellow > div, article.yellow > div > a { background-color: #c69214; }
 article.gray > div, article.gray > div > a { background-color: #5e6a71; }
 
 article > div {
+	background-clip: padding-box;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	border: 3px solid #2a3033;
+	border: 3px solid transparent;
 	box-sizing: border-box;
 	height: 100%;
 	overflow: hidden;
